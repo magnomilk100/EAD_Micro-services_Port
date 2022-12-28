@@ -8,7 +8,7 @@ import com.ead.course.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ead.course.repositories.CourseRepository;
-import com.ead.course.repositories.ModuleRespository;
+import com.ead.course.repositories.ModuleRepository;
 import com.ead.course.repositories.LessonRepository;
 
 import javax.transaction.Transactional;
@@ -22,7 +22,7 @@ public class CourseServiceImpl implements CourseService{
     @Autowired
     CourseRepository courseRepository;
     @Autowired
-    ModuleRespository moduleRepository;
+    ModuleRepository moduleRepository;
     @Autowired
     LessonRepository lessonRepository;
 
@@ -32,7 +32,7 @@ public class CourseServiceImpl implements CourseService{
     @Transactional
     @Override
     public void delete(CourseModel courseModel){
-        List<ModuleModel> moduleModelList = moduleRepository.findAllModulesIntoCourse(courseModel.getCourseId());
+        List<ModuleModel> moduleModelList = moduleRepository.findAllByCourse(courseModel.getCourseId());
         if(!moduleModelList.isEmpty()){
             for(ModuleModel module : moduleModelList){
                 List<LessonModel> lessonModelList = lessonRepository.findAllLessonsIntoModule(module.getModuleId());

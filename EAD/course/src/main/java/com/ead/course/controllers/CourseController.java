@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.Optional;
 @RestController
-@RequestMapping("/courses")
+@RequestMapping("/api/v1/courses")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class CourseController {
     @Autowired
