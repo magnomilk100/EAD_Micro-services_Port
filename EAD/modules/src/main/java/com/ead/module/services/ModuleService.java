@@ -1,6 +1,7 @@
-package com.ead.modules.services;
+package com.ead.module.services;
 
-import com.ead.modules.models.*;
+import com.ead.module.models.ModuleModel;
+import com.ead.module.models.*;
 import java.util.UUID;
 import java.util.Optional;
 import java.util.List;

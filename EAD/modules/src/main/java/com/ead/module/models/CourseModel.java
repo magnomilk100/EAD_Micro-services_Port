@@ -1,5 +1,7 @@
-package com.ead.modules.models;
+package com.ead.module.models;
 
+import com.ead.module.enums.CourseLevels;
+import com.ead.module.enums.CourseStatus;
 import com.ead.modules.enums.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;

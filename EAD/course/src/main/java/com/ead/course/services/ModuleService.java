@@ -1,6 +1,10 @@
 package com.ead.course.services;
 
 import com.ead.course.models.ModuleModel;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +16,7 @@ public interface ModuleService {
     Optional<ModuleModel> findOneInCourse(UUID courseId, UUID moduleId);
     Optional<ModuleModel> findById(UUID moduleId);
 
-    List<ModuleModel> findAll();
+    Page<ModuleModel> findAll(Specification<ModuleModel> spec, Pageable page);
 
-    List<ModuleModel> findAllByCourse(UUID courseId);
+    Page<ModuleModel> findAllByCourse(Specification<ModuleModel> spec , Pageable pageable);
 }

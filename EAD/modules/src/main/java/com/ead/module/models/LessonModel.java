@@ -1,7 +1,6 @@
-package com.ead.modules.models;
+package com.ead.module.models;
 
 import com.ead.modules.enums.*;
-import com.ead.modules.models.ModuleModel;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
