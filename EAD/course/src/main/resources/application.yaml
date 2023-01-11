@@ -1,17 +1,13 @@
-server:
-  port: 8082
 
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5433/ead-course
-    username: postgres
-    password: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      jdbc:
-        lob.non-contextual-creation: true
-    properties:
-      hibernate:
-        show_sql: true
+  application:
+    name: ead-course-service
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      discovery:
+        serviceId: ead-config-server
+      username: configserver
+      password: 'ead123cs'
+

@@ -9,17 +9,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
-@Data  // Lombok - creates getters and setters
-@Entity
+
+@Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Entity
 @Table(name = "TB_LESSONS")
 public class LessonModel implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, length = 150)
     private UUID lessonId;
     @Column(nullable = false, length = 150)
     private String title;
@@ -27,14 +26,9 @@ public class LessonModel implements Serializable {
     private String description;
     @Column(nullable = false)
     private String videoUrl;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime creationDate;
-    @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime lastUpdateDate;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
